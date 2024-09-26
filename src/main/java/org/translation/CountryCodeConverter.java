@@ -55,7 +55,15 @@ public class CountryCodeConverter {
      * @return the name of the country corresponding to the code
      */
     public String fromCountryCode(String code) {
-        return ctcountry.get(code.toUpperCase());
+        return ctcountry.getOrDefault(code.toUpperCase(), "Country not found");
+    }
+
+    /**
+     * Returns ctcountru.
+     * @return ctcountry
+     */
+    public Map<String, String> getCtcountry() {
+        return ctcountry;
     }
 
     /**
