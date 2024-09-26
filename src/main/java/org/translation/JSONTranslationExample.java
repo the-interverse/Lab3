@@ -59,7 +59,7 @@ public class JSONTranslationExample {
 
         }
 
-        return "";
+        return "Country not found";
 
     }
 
