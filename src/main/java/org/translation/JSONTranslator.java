@@ -85,6 +85,6 @@ public class JSONTranslator implements Translator {
         if (tR.get(country).containsKey(language) && tR.containsKey(country)) {
             return tR.get(country).get(language);
         }
-        return null;
+        return "Country not found";
     }
 }
