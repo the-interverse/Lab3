@@ -59,14 +59,6 @@ public class CountryCodeConverter {
     }
 
     /**
-     * Returns ctcountru.
-     * @return ctcountry
-     */
-    public Map<String, String> getCtcountry() {
-        return ctcountry;
-    }
-
-    /**
      * Returns the code of the country for the given country name.
      * @param country the name of the country
      * @return the 3-letter code of the country

@@ -76,31 +76,17 @@ public class Main {
 
     // Note: CheckStyle is configured so that we don't need javadoc for private methods
     private static String promptForCountry(Translator translator) {
-        Map<String, String> ctcp = CNC.getCtcountry();
 
-        List<String> codesToRemove = List.of(
-                "SHN", "MSR", "SXM", "CCK", "BLM", "TCA", "MNP", "MAF", "HMD", "FRO", "PSE", "FLK", "WLF",
-                "ASM", "VGB", "CYM", "COK", "PCN", "IMN", "CUW", "UMI", "NIU", "MAC", "IOT", "GRL", "HKG", "TKL", "MYT",
-                "MTQ", "BES", "GUM", "GIB", "GUF", "SPM", "NCL", "ABW", "TWN", "AIA", "ALA", "BVT", "BMU", "VIR", "ATF",
-                "CXR", "ESH", "NFK", "PYF", "PRI", "SJM", "JEY", "REU", "VAT", "GLP", "GGY", "SGS", "ATA"
-        );
+        List<String> lC = translator.getCountries();
 
-        for (String code : codesToRemove) {
-            ctcp.remove(code);
+        Map<String, String> lntc = new HashMap<>();
+        for (String c : lC) {
+            String name = CNC.fromCountryCode(c);
+            lntc.put(name, c);
         }
-
-        List<String> cn = new ArrayList<>();
-
-        for (String a3c : ctcp.keySet()) {
-            String countryName = CNC.fromCountryCode(a3c);
-            if (!countryName.isEmpty()) {
-                cn.add(countryName);
-            }
-        }
-
-        Collections.sort(cn);
-
-        for (String name : cn) {
+        List<String> lN = new ArrayList<>(lntc.keySet());
+        Collections.sort(lN);
+        for (String name : lN) {
             System.out.println(name);
         }
 
